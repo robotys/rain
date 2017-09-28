@@ -102,6 +102,3 @@ Thank you for trying Rain!
 ![Izwan Robotys Cute Face](/media/avatar.jpg)<br/>`Izwan Robotys`<br/><small>Kuala Lumpur</small>
 
 *ps: If you have any suggestion to further simplify Rain, please do so in github issues. Better yet: fork and pull request. <br> pps: Rain was released under <a href="https://en.wikipedia.org/wiki/MIT_License">MIT opensource</a> license. Have no fear of using it in any way whatsoever.*
-
-
-
