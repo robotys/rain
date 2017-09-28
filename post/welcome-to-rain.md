@@ -13,9 +13,9 @@ Thus `Rain` was born.
 
 Written from scratch in `PHP` with **no framework**, **no database** and only 1 library (Parsedown, excellent tool!) disregarding any new convention and cool programming paradigm.
 
-Yep, not even `OOP` (except for <a href="http://parsedown.org">Parsedown</a> anyway).
+Yep, not even `OOP` (except for [Parsedown](http://parsedown.org) anyway).
 
-Which means: 1) It is very easy to start hacking Rain functionality away and 2) It is not the most beautiful code in existence. Imagine the beauty of <a href="http://laravel.com">Laravel</a> source code, and now only take 1% of it, that is Rain. :-D
+Which means: 1) It is very easy to start hacking Rain functionality away and 2) It is not the most beautiful code in existence. Imagine the beauty of [Laravel](http://laravel.com) source code, and now only take 1% of it, that is Rain. :-D
 
 Well, the only thing that it has is `theme` engine, which is quite minimal too. Take a look at this `index.php` file that you are looking at:
 
@@ -54,14 +54,14 @@ Requirements to use Rain:
 1. PHP 5
 2. Apache (NGINX soon)
 3. Git
-4. <a href="http://www.sublimetext.com">Good text editor</a> (Pick your poison)
+4.[Good text editor](http://www.sublimetext.com) (Pick your poison)
 
 What Rain did not have:
 1. User login online.
 2. Category. but we do have tags
-3. Dashboard. This is not <a href="http://wordpress.org">`Wordpress`</a>
+3. Dashboard. This is not `Wordpress`</a>
 4. WYSIWYG editor. Again, this is not `Wordpress`!
-5. Comments. Use <a href="http://disqus.com">Disqus</a> instead.
+5. Comments. Use [Disqus](http://disqus.com)</a> instead.
 
 What i've planned for Rain:
 1. CDN compatible
@@ -78,18 +78,17 @@ Install
 We have two routes to install Rain. First, the easiest and preferred method: via Composer. Last is via plain download and extract to your directory.
 
 Composer method:
-
-```
-$ composer require robotys/rain
-```
+1. cd to your webserver root
+2. decide your blog directory name. Lets say `meblogging.local`, because just for local development.
+3. Create composer project: `composer create-project robotys/rain blogDirName`
 
 Done!
 
-(If you have problems with composer though, please do some googling. It gets quite frustrating for the first timer. My go to command is `composer dump-autload`. And NEVER USE composer as `sudo`. You've been warned ).
+(If you have problems with composer though, please do some googling. (Composer homepage is quite good for starter. It gets quite frustrating for the first timer. My go to command is `composer dump-autload`. And NEVER USE composer as `sudo`. You've been warned ).
 
 Download method:
 
-1. Download zip from github page. Or just (click here)[https://github.com/robotys/rain/archive/master.zip] to download latest version.
+1. Download zip from github page. Or just [click here](https://github.com/robotys/rain/archive/master.zip) to download latest version.
 2. Extract it inside your root directory
 3. Run your webserver (apache)
 4. Open it from your browser
@@ -101,7 +100,7 @@ Thank you for trying Rain!
 
 ![Izwan Robotys Cute Face](/media/avatar.jpg)<br/>`Izwan Robotys`<br/><small>Kuala Lumpur</small>
 
-*ps: If you have any suggestion to further simplify Rain, please do so in github issues. Better yet: fork and pull request. <br> pps: Rain was released under <a href="https://en.wikipedia.org/wiki/MIT_License">MIT opensource</a> license. Have no fear of using it in any way whatsoever.*
+*ps: If you have any suggestion to further simplify Rain, please do so in github issues. Better yet: fork and pull request. <br> pps: Rain was released under [MIT opensource](https://en.wikipedia.org/wiki/MIT_License) license. Have no fear of using it in any way whatsoever.*
 
 
 
