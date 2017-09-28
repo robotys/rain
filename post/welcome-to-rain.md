@@ -78,9 +78,11 @@ Install
 We have two routes to install Rain. First, the easiest and preferred method: via Composer. Last is via plain download and extract to your directory.
 
 Composer method:
-1. cd to your webserver root
-2. decide your blog directory name. Lets say `meblogging.local`, because just for local development.
-3. Create composer project: `composer create-project robotys/rain blogDirName`
+1. cd to your web root. Create new one if necessary.
+2. Initite git: `git init`
+3. Add robotys/rain as remote rain: `git remote add rain git@github.com:robotys/rain.git`
+4. Pull latest code: `git pull rain master`
+5. Open your directory in browser.
 
 Done!
 
@@ -93,7 +95,7 @@ Download method:
 3. Run your webserver (apache)
 4. Open it from your browser
 
-If any of above steps is mindboggling to you, then please stop now and read some more on managing local web server. (Digital Ocean article)[] is good for that.
+If any of above steps is mindboggling to you, then please stop now and read some more on managing local web server. [Digital Ocean article](https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-on-ubuntu-16-04) is good for that.
 
 
 Thank you for trying Rain!
