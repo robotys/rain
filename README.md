@@ -47,10 +47,14 @@ Another point: without database in place, all of the post write up and its metad
 
 This effectively made it very fast and nimble for small and personal project. (Going to benchmark it soon).
 
-Requirements to run Rain:
-1. PHP 4.6
-2. Git
-3. <a href="http://www.sublimetext.com">Good text editor</a>. Pick your poison
+List
+---
+
+Requirements to use Rain:
+1. PHP 5
+2. Apache (NGINX soon)
+3. Git
+4. <a href="http://www.sublimetext.com">Good text editor</a> (Pick your poison)
 
 What Rain did not have:
 1. User login online.
@@ -67,6 +71,31 @@ What i've planned for Rain:
 Which brings this <strike>rant</strike> post to its main caveat: if you are not web developer, and not familiar with git workflow, most likely Rain is not for you.
 
 For 1% of you that fall in that little spot: hey buddies!
+
+Install
+---
+
+We have two routes to install Rain. First, the easiest and preferred method: via Composer. Last is via plain download and extract to your directory.
+
+Composer method:
+
+```
+$ composer require robotys/rain
+```
+
+Done!
+
+(If you have problems with composer though, please do some googling. It gets quite frustrating for the first timer. My go to command is `composer dump-autload`. And NEVER USE composer as `sudo`. You've been warned ).
+
+Download method:
+
+1. Download zip from github page. Or just (click here)[https://github.com/robotys/rain/archive/master.zip] to download latest version.
+2. Extract it inside your root directory
+3. Run your webserver (apache)
+4. Open it from your browser
+
+If any of above steps is mindboggling to you, then please stop now and read some more on managing local web server. (Digital Ocean article)[] is good for that.
+
 
 Thank you for trying Rain!
 
