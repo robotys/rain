@@ -12,5 +12,5 @@
             "email": "robotys@gmail.com"
         }
     ],
-    "minimum-stability": "dev"
+    "minimum-stability": "stable"
 }
