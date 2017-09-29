@@ -178,24 +178,26 @@ function the_posts_pagination(){
 		// dd($_SERVER['REQUEST_URI']);
 		$current_page = 1;
 	} 
-		
-	$links = [];
 	
-	if($current_page > 1) $links[] = '<li class="page-item"><a class="page-link" href="?page='.($current_page - 1).'"> &laquo; </a></li>';
+	if($total_page >= 1){
+		$links = [];
+		
+		if($current_page > 1) $links[] = '<li class="page-item"><a class="page-link" href="?page='.($current_page - 1).'"> &laquo; </a></li>';
 
-	for($i=0; $i < $total_page; $i++){
-		$class = '';
-		if(($i+1) == $current_page){
-			$links[] = '<li class="page-item active">'.($i+1).'</li>';
-		}else{
-			
-			$links[] = '<li class="page-item"><a class="page-link" href="?page='.($i+1).'">'.($i+1).'</a></li>';
-		} 
+		for($i=0; $i < $total_page; $i++){
+			$class = '';
+			if(($i+1) == $current_page){
+				$links[] = '<li class="page-item active">'.($i+1).'</li>';
+			}else{
+				
+				$links[] = '<li class="page-item"><a class="page-link" href="?page='.($i+1).'">'.($i+1).'</a></li>';
+			} 
+		}
+
+		if($current_page < $total_page) $links[] = '<li class="page-item"><a class="page-link" href="?page='.($current_page + 1).'"> &raquo; </a></li>';
+
+		echo '<ul class="pagination">'.implode($links).'</ul>';
 	}
-
-	if($current_page < $total_page) $links[] = '<li class="page-item"><a class="page-link" href="?page='.($current_page + 1).'"> &raquo; </a></li>';
-
-	echo '<ul class="pagination">'.implode($links).'</ul>';
 	
 }
 
