@@ -86,7 +86,9 @@ Composer method:
 
 Done!
 
-(If you have problems with composer though, please do some googling. (Composer homepage is quite good for starter. It gets quite frustrating for the first timer. My go to command is `composer dump-autload`. And NEVER USE composer as `sudo`. You've been warned ).
+If you cannot wrap your mind around that git, specifically 'why remote add rain, not remote add origin?', then please google around. In short: remote rain so that you can pull latest version easily, and remote origin is for your blog repo.
+
+We did not want you to push your blog to rain repo right.
 
 Download method:
 
