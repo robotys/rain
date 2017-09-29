@@ -177,9 +177,11 @@ function the_posts_pagination(){
 	else{
 		// dd($_SERVER['REQUEST_URI']);
 		$current_page = 1;
-	} 
-	
-	if($total_page >= 1){
+	}
+
+
+
+	if($total_page > 1){
 		$links = [];
 		
 		if($current_page > 1) $links[] = '<li class="page-item"><a class="page-link" href="?page='.($current_page - 1).'"> &laquo; </a></li>';
@@ -202,6 +204,7 @@ function the_posts_pagination(){
 }
 
 function sort_list($list){
+
 	// date descending
 	$dates = $slug_index = [];
 	$count = 0;
@@ -213,7 +216,7 @@ function sort_list($list){
 	arsort($dates);
 	$sorted = [];
 
-
+	// dd($list);
 
 	// create pagination
 	$per_page = get_blog('post_per_list');
@@ -248,13 +251,17 @@ function search_phrase(){
 	if(strpos($_SERVER['REQUEST_URI'], '/search/') !== FALSE){
 
 		$exp = explode('/', $_SERVER['REQUEST_URI']);
-		$keyword = $exp[2];
+
+		$key = $exp[2];
+		$ex = explode('?', $key);
+		$keyword = $ex[0];
 		
 		echo $keyword;
 	}
 }
 
 function search_list($keyword){
+
 	// search in all data
 	$res = [];
 	$all_data = [];
@@ -265,7 +272,7 @@ function search_list($keyword){
 			$data = json_decode(file_get_contents('../post/'.$path), TRUE);
 			$data['slug'] = str_replace('.json', '', $path);
 
-			if(strpos($str, $keyword) !== false AND $data['status'] == 'published'){
+			if(stripos($str, $keyword) !== false AND $data['status'] == 'published'){
 				$res[$data['slug']] = $data;
 			}
 
@@ -275,14 +282,10 @@ function search_list($keyword){
 
 	foreach($all_data as $data){
 		$md = get_markdown($data['slug']);
-		if(strpos($md, $keyword) !== false) $res[$data['slug']] = $data;
+		if(stripos($md, $keyword) !== false) $res[$data['slug']] = $data;
 	}
 
-
-	// list all result
-	
-
-	return sort_list($res);
+	return $res; // no need to sort, as post_list will sort this res!
 }
 
 function post_list(){
@@ -292,9 +295,11 @@ function post_list(){
 	if(strpos($_SERVER['REQUEST_URI'], '/search/') !== FALSE){
 
 		$exp = explode('/', $_SERVER['REQUEST_URI']);
-		$keyword = $exp[2];
-		
+		$key = $exp[2];
+		$ex = explode('?', $key);
+		$keyword = $ex[0];
 		$list = search_list($keyword);
+		
 
 	}else{
 		// get all published post list WITHOUT actual long content
