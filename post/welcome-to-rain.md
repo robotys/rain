@@ -19,28 +19,6 @@ Which means: 1) It is very easy to start hacking Rain functionality away and 2) 
 
 Well, the only thing that it has is `theme` engine, which is quite minimal too. Take a look at this `index.php` file that you are looking at:
 
-```php
-<?php 
-	include('header.php');
- 				
-	$posts = post_list();
-
-	if(count($posts) === 0){
-		echo 'No Post';
-	}else{
-		
-		foreach($posts as $post){
-			echo '<h1><a href="/read/'.$post['slug'].'">'.strtoupper($post['title']).'</a></h1>';
-			echo get_post($post['slug']);
-			echo '<br/>';
-		}
-
-	}
-
-	include('footer.php');
-?>
-```
-
 Hell yeah blogging gets so simple!
 
 Another point: without database in place, all of the post write up and its metadata is saved as plain text file. Posts is saved as `.md` while metada is saved as `.json` as you guessed it, json format.

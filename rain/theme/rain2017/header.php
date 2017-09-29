@@ -137,8 +137,7 @@
     }
 
 	</style>
-  <link rel="stylesheet" type="text/css" href="<?php assets('prism.css');?>" />
-  <script src="<?php assets('prism.js');?>"></script>
+  
 </head>
 <body>
 <div class="container">

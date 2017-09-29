@@ -39,6 +39,14 @@ function og_meta(){
 	}
 }
 
+function auto_footer(){
+	// check for prism = true in session and add prism js
+	if(array_key_exists('has_syntax', $_SESSION) AND $_SESSION['has_syntax'] == true){
+		echo '<link rel="stylesheet" type="text/css" href="/rain/lib/prism.css" />
+  <script src="/rain/lib/prism.js"></script>';
+	}
+}
+
 function assets($path){
 	$settings = settings();
 	// dd($settings);
@@ -386,7 +394,12 @@ function get_post($slug = false){
 	$md = get_markdown($slug);
 
 	$parsedown = new Parsedown();
-	$html = $parsedown->text($md); 
+	$html = $parsedown->text($md);
+
+	if(stripos($html, '<pre>') !== -1){
+		$_SESSION['has_syntax'] = true;
+	}
+
 	$exp = explode('</h1>', $html);
 
 	return $exp[1];
