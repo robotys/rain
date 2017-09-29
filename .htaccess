@@ -1,6 +1,7 @@
 RewriteEngine On
 
 RewriteRule ^$ rain/index.php [L]
+RewriteRule ^home rain/index.php [L]
 RewriteRule ^read rain/reader.php [L]
 RewriteRule ^search rain/search.php [L]
 

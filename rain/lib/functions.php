@@ -168,6 +168,37 @@ function read_slug(){
 	}
 }
 
+function the_posts_pagination(){
+	$per_page = get_blog('post_per_list');
+	$total_post = $_SESSION['total_post'];
+	$total_page = ceil($total_post/$per_page);
+
+	if(array_key_exists('page', $_GET)) $current_page = $_GET['page'];
+	else{
+		// dd($_SERVER['REQUEST_URI']);
+		$current_page = 1;
+	} 
+		
+	$links = [];
+	
+	if($current_page > 1) $links[] = '<li class="page-item"><a class="page-link" href="?page='.($current_page - 1).'"> &laquo; </a></li>';
+
+	for($i=0; $i < $total_page; $i++){
+		$class = '';
+		if(($i+1) == $current_page){
+			$links[] = '<li class="page-item active">'.($i+1).'</li>';
+		}else{
+			
+			$links[] = '<li class="page-item"><a class="page-link" href="?page='.($i+1).'">'.($i+1).'</a></li>';
+		} 
+	}
+
+	if($current_page < $total_page) $links[] = '<li class="page-item"><a class="page-link" href="?page='.($current_page + 1).'"> &raquo; </a></li>';
+
+	echo '<ul class="pagination">'.implode($links).'</ul>';
+	
+}
+
 function sort_list($list){
 	// date descending
 	$dates = $slug_index = [];
@@ -179,9 +210,34 @@ function sort_list($list){
 
 	arsort($dates);
 	$sorted = [];
+
+
+
+	// create pagination
+	$per_page = get_blog('post_per_list');
+	$total_post = $_SESSION['total_post'] = count($list);
+	$total_page = ceil($total_post/$per_page);
+
+	if(array_key_exists('page', $_GET)) $current_page = $_GET['page'];
+	else{
+		// dd($_SERVER['REQUEST_URI']);
+		$current_page = 1;
+	} 
+	
+	$start = ($current_page - 1) * $per_page;
+	$end = $start + ($per_page - 1);
+
+	// dd($start);
+	
+	$count = 0;
 	foreach($dates as $slug=>$timekey){
-		$sorted[] = $list[$slug_index[$slug]];
+		if($count >= $start) $sorted[] = $list[$slug_index[$slug]];
+		$count++;
+
+		if($count > $end) break;
 	}
+
+	// dd($sorted);
 
 	return $sorted;
 }

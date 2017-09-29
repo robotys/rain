@@ -109,6 +109,33 @@
   		margin-top: 100px;
   		font-size: 0.8em;
   	}
+
+    ul.pagination{
+      margin: 0 auto;
+      padding: 0;
+      text-align: center;
+      width: 100%;
+    }
+
+    li.page-item{
+      list-style: none;
+      display: inline-block;
+      margin: 0;
+      padding: 0;
+    }
+
+    a.page-link, li.active{
+      background: #fff;
+      padding: 6px 10px;
+      margin-right: 2px;
+      border: #ddd solid 1px;
+    }
+
+    li.active{
+      background: none;
+      padding: 3px 10px;
+    }
+
 	</style>
   <link rel="stylesheet" type="text/css" href="<?php assets('prism.css');?>" />
   <script src="<?php assets('prism.js');?>"></script>

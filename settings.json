@@ -5,6 +5,7 @@
 		"url":"http://robotys.local",
 		"description":"Small footprint, highly nimble blogging engine for developers.",
 		"theme":"rain2017",
-		"featured_img":"welcome-rain.jpg"
+		"featured_img":"welcome-rain.jpg",
+		"post_per_list":5
 	}
 }
