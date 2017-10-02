@@ -4,11 +4,13 @@
 	$post = get_data();
 
 	echo '<h1>'.strtoupper($post['title']).'</h1>';
-	echo '<div class="meta">Published at '.date('F dS, Y', strtotime($post['published_at'])).' by '.$post['author'];
+	
+	echo '<div class="meta">Published at '; the_time('F dS, Y'); echo ' by '; the_author();
 
 	if(has_tag()) echo ' tagged as '; the_tags();
 
 	echo '</div>';
+
 	echo get_post($post['slug']);
 	echo '<br/>';
 	echo '<div class="nav">';
