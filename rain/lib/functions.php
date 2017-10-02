@@ -76,6 +76,10 @@ function assets($path){
 	echo '/rain/theme/'.$settings['theme'].'/assets/'.$path;
 }
 
+function pointer($post){
+	$_SESSION['post_slug'] = $post['slug'];
+}
+
 function has_tag(){
 	$post = get_data();
 	return (array_key_exists('tags', $post) !== false);

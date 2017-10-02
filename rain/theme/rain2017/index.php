@@ -9,6 +9,9 @@
 	}else{
 		
 		foreach($posts as $post){
+			
+			pointer($post);
+
 			echo '<h1><a href="/read/'.$post['slug'].'">'.strtoupper($post['title']).'</a></h1>';
 			echo '<div class="meta">Published at '; the_time('F dS, Y'); echo ' by '; the_author();
 
