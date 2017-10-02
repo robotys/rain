@@ -2,7 +2,7 @@
 	include('header.php');
  				
 	$post = get_data();
-
+	current_url();
 	echo '<h1>'.strtoupper($post['title']).'</h1>';
 	
 	echo '<div class="meta">Published at '; the_time('F dS, Y'); echo ' by '; the_author();

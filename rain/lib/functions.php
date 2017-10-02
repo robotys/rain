@@ -41,6 +41,24 @@ function og_meta(){
 	}
 }
 
+function current_url(){
+	if (isset($_SERVER['HTTPS']) &&
+    ($_SERVER['HTTPS'] == 'on' || $_SERVER['HTTPS'] == 1) ||
+    isset($_SERVER['HTTP_X_FORWARDED_PROTO']) &&
+    $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https') {
+	  $protocol = 'https://';
+	}
+	else {
+	  $protocol = 'http://';
+	}
+
+	$host = $_SERVER['HTTP_HOST'];
+	$uri = $_SERVER['REQUEST_URI'];
+
+	$url = $protocol.$host.$uri;
+	return $url;
+}
+
 function auto_footer(){
 	// check for prism = true in session and add prism js
 	if(array_key_exists('has_syntax', $_SESSION) AND $_SESSION['has_syntax'] == true){
