@@ -2,6 +2,8 @@
 session_start();
 session_destroy();
 
+error_reporting(E_ALL);
+
 function og_meta(){
 	if(is_post()){
 		$post = get_data();
@@ -42,8 +44,23 @@ function og_meta(){
 function auto_footer(){
 	// check for prism = true in session and add prism js
 	if(array_key_exists('has_syntax', $_SESSION) AND $_SESSION['has_syntax'] == true){
-		echo '<link rel="stylesheet" type="text/css" href="/rain/lib/prism.css" />
-  <script src="/rain/lib/prism.js"></script>';
+		echo '
+<link rel="stylesheet" type="text/css" href="/rain/lib/prism.css" />
+<script src="/rain/lib/prism.js"></script>';
+	}
+
+	if(get_blog('ga_tracking_id')){
+		echo '
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-29977976-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments)};
+  gtag(\'js\', new Date());
+
+  gtag(\'config\', \''.get_blog('ga_tracking_id').'\');
+</script>
+';
 	}
 }
 
@@ -112,12 +129,15 @@ function the_author_posts_link(){
 }
 
 function blog($key){
+	// dd($key);
 	echo get_blog($key);
 }
 
 function get_blog($key){
 	$settings = settings();
-	return $settings[$key];
+	
+	if(array_key_exists($key, $settings) !== FALSE) return $settings[$key];
+	else return false;
 }
 
 function get_author(){

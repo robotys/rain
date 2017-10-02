@@ -14,4 +14,5 @@
 
 	$settings = settings();
 	include('theme/'.$settings['theme'].'/index.php');
+	auto_footer();
 ?>

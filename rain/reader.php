@@ -7,4 +7,5 @@
 	$settings = settings();
 	$_SESSION['post_slug'] = str_replace('/read/', '', $_SERVER['REQUEST_URI']);
 	include('theme/'.$settings['theme'].'/single.php');
+	auto_footer();
 ?>
