@@ -126,12 +126,14 @@ function the_tags(){
 	$post = get_data();
 	$tags = $post['tags'];
 	
-	$all = [];
-	foreach($tags as $tag){
-		$all[] = '<a href="/tag/'.$tag.'">'.$tag.'</a>';
-	}
+	// $all = [];
+	// foreach($tags as $tag){
+	// 	$all[] = '<a href="/tag/'.$tag.'">'.$tag.'</a>';
+	// }
 
-	echo implode(', ', $all);
+	// echo implode(', ', $all);
+
+	echo  implode(', ', $tags);
 }
 
 function the_content(){
