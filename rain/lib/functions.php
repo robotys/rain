@@ -48,26 +48,41 @@ function auto_footer(){
 <link rel="stylesheet" type="text/css" href="/rain/lib/prism.css" />
 <script src="/rain/lib/prism.js"></script>';
 	}
+}
+
+function rain_header(){
+	
+	og_meta();
 
 	if(get_blog('ga_tracking_id')){
 		echo '
-<!-- Global Site Tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-29977976-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments)};
-  gtag(\'js\', new Date());
+  <!-- Global Site Tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-29977976-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments)};
+    gtag(\'js\', new Date());
 
-  gtag(\'config\', \''.get_blog('ga_tracking_id').'\');
-</script>
+    gtag(\'config\', \''.get_blog('ga_tracking_id').'\');
+  </script>
 ';
 	}
+
 }
 
 function assets($path){
 	$settings = settings();
 	// dd($settings);
 	echo '/rain/theme/'.$settings['theme'].'/assets/'.$path;
+}
+
+function has_tag(){
+	$post = get_data();
+	return (array_key_exists('tags', $post) !== false);
+}
+
+function upvote_link(){
+	echo '<a href="/upvote/'.$_SESSION['post_slug'].'">upvote</a>';
 }
 
 function have_posts(){
@@ -101,6 +116,18 @@ function have_posts(){
 	// if read, get post
 
 	// if search, get search list
+}
+
+function the_tags(){
+	$post = get_data();
+	$tags = $post['tags'];
+	
+	$all = [];
+	foreach($tags as $tag){
+		$all[] = '<a href="/tag/'.$tag.'">'.$tag.'</a>';
+	}
+
+	echo implode(', ', $all);
 }
 
 function the_content(){

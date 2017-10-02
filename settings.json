@@ -7,6 +7,6 @@
 		"theme":"rain2017",
 		"featured_img":"welcome-rain.jpg",
 		"post_per_list":5,
-		"ga_tracking_id":"UA-29977976-1"
+		"ga_tracking_id":false
 	}
 }

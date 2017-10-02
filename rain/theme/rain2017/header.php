@@ -8,7 +8,7 @@
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<?php og_meta();?>
+<?php rain_header();?>
 
 
   <style>
@@ -33,6 +33,11 @@
   		padding: 20px;
   		padding-top: 30px;
   	}
+
+    .meta{
+      font-size: 0.8em;
+      margin-bottom: 40px;
+    }
 
   	.content{
   		max-width: 70%;
