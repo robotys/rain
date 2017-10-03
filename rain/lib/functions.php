@@ -477,7 +477,7 @@ function get_post($slug = false){
 	$parsedown = new Parsedown();
 	$html = $parsedown->text($md);
 
-	if(stripos($html, '<pre>') !== -1){
+	if(stripos($html, '<code class=') !== -1){
 		$_SESSION['has_syntax'] = true;
 	}
 
