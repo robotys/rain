@@ -4,6 +4,7 @@
 		"name":"RainPost",
 		"url":"http://robotys.local",
 		"description":"Small footprint, highly nimble blogging engine for developers.",
+		"keyword":["rainpost","rain blog","blog engine","markdown blog","php"],
 		"theme":"rain2017",
 		"featured_img":"welcome-rain.jpg",
 		"post_per_list":5,

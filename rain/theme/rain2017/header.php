@@ -8,6 +8,19 @@
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <?php
+    if(is_post()){
+      $description = get_description();
+      $keywords = implode(',',get_tags());
+    }else{
+      $description = get_blog('description');
+      $keywords = implode(',', get_blog('keyword'));
+
+    }
+  ?>
+
+  <meta name="description" content="<?php echo $description; ?>">
+  <meta name="keywords" content="<?php echo $keywords; ?>">
 <?php rain_header();?>
 
 
@@ -46,6 +59,10 @@
   		padding: 20px;
   		border-left: 1px #ccc dashed;
   	}
+
+    .content > img{
+      max-width: 100%;
+    }
 
   	.content p, .content li{
   		line-height: 1.6em;

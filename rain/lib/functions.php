@@ -141,9 +141,7 @@ function have_posts(){
 }
 
 function the_tags(){
-	$post = get_data();
-	$tags = $post['tags'];
-	
+	$tags = get_tags();
 	// $all = [];
 	// foreach($tags as $tag){
 	// 	$all[] = '<a href="/tag/'.$tag.'">'.$tag.'</a>';
@@ -189,6 +187,18 @@ function get_blog($key){
 	
 	if(array_key_exists($key, $settings) !== FALSE) return $settings[$key];
 	else return false;
+}
+
+function get_tags(){
+	$post = get_data();
+	$tags = $post['tags'];
+	
+	return $tags;
+}
+
+function get_description(){
+	$data = get_data();
+	return $data['brief'];
 }
 
 function get_author(){
