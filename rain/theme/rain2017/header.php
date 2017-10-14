@@ -158,11 +158,73 @@
       padding: 3px 10px;
     }
 
+    .mobile_header{
+      display: none;
+    }
+
+
+    /* Portrait */
+  @media only screen 
+    and (min-device-width: 320px) 
+    and (max-device-width: 480px)
+    and (-webkit-min-device-pixel-ratio: 2)
+    and (orientation: portrait) {
+
+    .sidebar_wide{
+      display: none;
+      width: 0px;
+    }
+
+    .container{
+      max-width: 100%;
+      box-sizing: border-box;
+      float: left;
+      margin: 0px;
+      padding: 20px;
+    }
+
+    .content{
+      border: none;
+      max-width: 100%;
+      width: 100%;
+      box-sizing: border-box;
+      padding: 0px;
+    }
+
+    .content img{
+      max-width: 100%;
+    }
+
+    .mobile_header{
+      display: inherit;
+    }
+
+    .mobile_avatar{
+      width: 30px;
+      float: left;
+    }
+
+    .mobile_home{
+      font-size: 1.5em;
+      margin-top: 4px;
+      margin-left: 7px;
+      display: block;
+      float: left;
+    }
+  }
+
+
 	</style>
   
 </head>
 <body>
 <div class="container">
+
+  <div class="mobile_header">
+    <img src="<?php assets('avatar.png');?>" class="mobile_avatar">
+    <b><a href="/" class="mobile_home"><i class="glyphicon glyphicon-gear"></i> <?php blog('name');?></a></b>
+  </div>
+
 	<div class="sidebar_wide">
 		<p>
 			<img src="<?php assets('avatar.png');?>" class="avatar">
@@ -176,6 +238,5 @@
 			<br/>
       <input type="text" name="phrase" class="form-control" placeholder="type and hit enter" value="<?php search_phrase();?>">
     </form>
-
 	</div>
 	<div class="content">
